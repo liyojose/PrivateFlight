@@ -19,13 +19,14 @@ namespace PrivateFlight.Controllers
             _repo=repo;
         }
 
-        [HttpGet(Name = "GetMessage")]
-        public async Task<MessageDto> Get([FromQuery]string countrycode, DateTime departuredate)
+        [HttpGet(Name = "GetMessageByCode")]
+        public async Task<MessageDto> GetMessageByCode([FromQuery]string countrycode, DateTime departuredate)
         {
             return await _repo.GetMessage(countrycode, departuredate);
         }
-        [HttpGet(Name = "GetAllMessage")]
-        public async Task<IEnumerable<MessageDto>> GetAll([FromQuery] string countrycode)
+        [HttpGet]
+        [Route("GetAllMessage")]
+        public async Task<IEnumerable<MessageDto>> GetAllMessage([FromQuery] string countrycode)
         {
             return await _repo.GetAllMessage(countrycode);
         }
