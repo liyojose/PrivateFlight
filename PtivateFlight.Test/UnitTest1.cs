@@ -198,11 +198,11 @@ namespace PtivateFlight.Test
             Assert.Equal(new DateTime(2022, 01, 31, 00, 00, 01), Convert.ToDateTime(result[0].StartDate));
             Assert.Equal(new DateTime(9999, 12, 31, 00, 00, 00), Convert.ToDateTime(result[0].EndDate));
 
-            Assert.Equal("US", result[0].CountryCode);
-            Assert.Equal("Welcome {Name}", result[0].Title);
-            Assert.Equal("B", result[0].MessageType);
-            Assert.Equal(new DateTime(2022, 01, 02, 0, 0, 0), Convert.ToDateTime(result[0].StartDate));
-            Assert.Equal(new DateTime(2022, 02, 02, 0, 0, 0), Convert.ToDateTime(result[0].EndDate));
+            Assert.Equal("US", result[1].CountryCode);
+            Assert.Equal("Welcome {Name}", result[1].Title);
+            Assert.Equal("B", result[1].MessageType);
+            Assert.Equal(new DateTime(2022, 01, 02, 0, 0, 0), Convert.ToDateTime(result[1].StartDate));
+            Assert.Equal(new DateTime(2022, 02, 02, 0, 0, 0), Convert.ToDateTime(result[1].EndDate));
         }
     }
 }

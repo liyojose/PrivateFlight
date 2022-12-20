@@ -1,0 +1,40 @@
+﻿USE [PrivateFlight]
+GO
+
+/****** Object:  Table [dbo].[Messages]    Script Date: 12/20/2022 11:31:25 PM ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[Messages](
+	[Id] [uniqueidentifier] NOT NULL,
+	[Title] [nvarchar](50) NOT NULL,
+	[Message] [nvarchar](max) NOT NULL,
+	[CountryCode] [varchar](10) NOT NULL,
+	[StartDate] [datetime] NOT NULL,
+	[EndDate] [datetime] NULL,
+	[Type] [char](1) NOT NULL,
+ CONSTRAINT [PK_Message] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+
+USE [PrivateFlight]
+GO
+
+SET ANSI_PADDING ON
+GO
+
+/****** Object:  Index [NonClusteredIndex-20221219-160344]    Script Date: 12/20/2022 11:36:09 PM ******/
+CREATE UNIQUE NONCLUSTERED INDEX [NonClusteredIndex-20221219-160344] ON [dbo].[Messages]
+(
+	[CountryCode] ASC,
+	[StartDate] ASC,
+	[Type] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, IGNORE_DUP_KEY = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+GO
+

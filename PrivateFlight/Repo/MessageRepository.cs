@@ -215,7 +215,7 @@ namespace PrivateFlight.Repo
             {
                 return await db.Messages.Where(x => x.CountryCode == countrycode || x.CountryCode == "AAA").Select(d => new MessageDto
                 {
-                    CountryCode = d.Message1,
+                    CountryCode = d.CountryCode,
                     MessageType = d.Type,
                     Title = d.Title,
                     Message = d.Message1,
